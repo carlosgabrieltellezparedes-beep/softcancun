@@ -2,183 +2,311 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1730">
-  <meta name="description" content="SoftCancun. Información del programa, compra y asistencia de instalación.">
-  <title>SoftCancun | Software y soporte</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --navy: #0b1730;
-      --blue: #1769e0;
-      --light: #f3f6fb;
-      --text: #17243b;
-      --muted: #63718a;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: white;
-      line-height: 1.6;
-    }
-    header {
-      background: var(--navy);
-      color: white;
-      padding: 20px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .brand { font-size: 1.45rem; font-weight: 800; letter-spacing: .3px; }
-    .brand span { color: #69b4ff; }
-    nav a { color: white; text-decoration: none; margin-left: 20px; }
-    .hero {
-      background: linear-gradient(135deg, #0b1730, #173f78);
-      color: white;
-      padding: 85px 7%;
-      text-align: center;
-    }
-    .hero .tag {
-      display: inline-block;
-      border: 1px solid #6e9dd8;
-      border-radius: 30px;
-      padding: 5px 13px;
-      color: #d6e8ff;
-      font-size: .9rem;
-    }
-    h1 { font-size: clamp(2.2rem, 5vw, 3.7rem); line-height: 1.15; margin: 20px auto; max-width: 850px; }
-    .hero p { max-width: 680px; margin: 0 auto 28px; color: #e0eaff; font-size: 1.1rem; }
-    .button {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      padding: 13px 23px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      border: 0;
-      cursor: pointer;
-    }
-    .button.secondary { background: white; color: var(--navy); margin-left: 8px; }
-    main { max-width: 1100px; padding: 55px 22px; margin: auto; }
-    .section-title { text-align: center; margin-bottom: 32px; }
-    .section-title h2 { font-size: 2rem; margin-bottom: 8px; }
-    .section-title p, .muted { color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
-    .card {
-      border: 1px solid #e0e7f1;
-      border-radius: 14px;
-      padding: 25px;
-      background: white;
-      box-shadow: 0 8px 28px rgba(18, 42, 76, .05);
-    }
-    .icon { font-size: 1.8rem; }
-    .price { font-size: 2.5rem; font-weight: 800; color: var(--navy); margin: 12px 0 0; }
-    .price-note { color: #17804a; font-weight: bold; }
-    .steps { background: var(--light); border-radius: 14px; padding: 25px; }
-    .steps li { margin: 12px 0; }
-    .notice { background: #fff8e8; border: 1px solid #f1dfb5; padding: 15px; border-radius: 9px; }
-    footer { background: var(--navy); color: #dce6f7; padding: 30px 7%; text-align: center; }
-    footer a { color: white; }
-    @media (max-width: 600px) {
-      header { padding: 18px 5%; }
-      nav a { margin: 0 12px 0 0; }
-      .hero { padding: 60px 6%; }
-      .button.secondary { margin: 10px 0 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09152b">
+<meta name="description" content="SoftCancun: información del programa, compra y asistencia de instalación.">
+<title>SoftCancun | Software y soporte</title>
+<style>
+:root {
+  --navy: #09152b;
+  --blue: #2675f5;
+  --cyan: #53c5f5;
+  --text: #17243a;
+  --muted: #64748b;
+  --light: #f4f7fc;
+  --border: #e1e8f2;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.65;
+}
+a { text-decoration: none; }
+.container { width: min(1120px, 90%); margin: auto; }
+header {
+  background: var(--navy);
+  color: white;
+  border-bottom: 1px solid #243652;
+}
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo { font-size: 25px; font-weight: 800; letter-spacing: -.7px; }
+.logo span { color: var(--cyan); }
+nav { display: flex; gap: 27px; flex-wrap: wrap; }
+nav a { color: #e3ebf8; font-size: 14px; }
+nav a:hover { color: var(--cyan); }
+.hero {
+  color: white;
+  background:
+    radial-gradient(ellipse at 80% 20%, #1a4a83 0, transparent 38%),
+    linear-gradient(130deg, #09152b, #102b50);
+  padding: 88px 0 94px;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  align-items: center;
+  gap: 55px;
+}
+.eyebrow {
+  display: inline-block;
+  border: 1px solid #41638e;
+  border-radius: 50px;
+  padding: 6px 13px;
+  color: #c4e7ff;
+  font-size: 13px;
+  letter-spacing: .3px;
+}
+h1 {
+  font-size: clamp(38px, 5.5vw, 61px);
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin: 23px 0;
+}
+.hero p { max-width: 600px; color: #d3deee; font-size: 17px; }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 20px;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--blue);
+  color: white;
+  border: 1px solid var(--blue);
+  transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); background: #155fda; }
+.btn-outline { background: transparent; border-color: #7087a6; color: white; }
+.btn-outline:hover { background: #193557; }
+.hero-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 20px;
+  padding: 29px;
+  box-shadow: 0 24px 70px #0003;
+}
+.hero-card .mini { color: #bdd1ed; font-size: 13px; }
+.hero-card .amount { font-size: 38px; font-weight: 800; margin: 8px 0 0; }
+.hero-card .tax { color: #91e3c0; font-weight: 700; font-size: 14px; }
+.hero-card hr { border: 0; border-top: 1px solid #ffffff26; margin: 22px 0; }
+.hero-card li { color: #e3ebf8; margin: 10px 0; font-size: 14px; }
+section { padding: 76px 0; }
+.section-head { text-align: center; max-width: 700px; margin: 0 auto 38px; }
+.section-head h2 { font-size: clamp(27px, 4vw, 38px); line-height: 1.2; margin: 0 0 12px; letter-spacing: -.7px; }
+.section-head p { color: var(--muted); margin: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.card {
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 27px;
+  background: white;
+  box-shadow: 0 8px 28px #183b6610;
+}
+.card h3 { margin: 13px 0 8px; font-size: 19px; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+.card-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: grid; place-items: center; background: #eaf2ff;
+  font-size: 23px;
+}
+.soft-bg { background: var(--light); }
+.price-wrap { max-width: 650px; margin: auto; }
+.price-card {
+  text-align: center; padding: 38px;
+  border: 1px solid #d9e5f6; border-radius: 20px;
+  background: white; box-shadow: 0 20px 55px #173c6d12;
+}
+.price-label { color: var(--muted); font-size: 14px; }
+.price { font-size: clamp(40px, 7vw, 54px); font-weight: 850; letter-spacing: -1.5px; color: var(--navy); }
+.tax-label { color: #168456; font-weight: 700; font-size: 14px; }
+.price-card .btn { margin-top: 20px; }
+.disclaimer {
+  font-size: 13px; color: var(--muted); margin-top: 19px;
+}
+.steps { counter-reset: step; display: grid; gap: 15px; max-width: 820px; margin: auto; }
+.step {
+  counter-increment: step;
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 20px; border: 1px solid var(--border);
+  border-radius: 13px; background: white;
+}
+.step::before {
+  content: counter(step);
+  flex: 0 0 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #eaf2ff; color: var(--blue); font-weight: 800;
+}
+.step h3 { margin: 0 0 4px; font-size: 16px; }
+.step p { margin: 0; color: var(--muted); font-size: 14px; }
+.warning {
+  margin: 26px auto 0; max-width: 820px; padding: 17px 20px;
+  background: #fff8e8; border: 1px solid #f0dfb6;
+  color: #77521a; border-radius: 11px; font-size: 14px;
+}
+.support {
+  text-align: center; color: white;
+  background: linear-gradient(120deg, #0b1a33, #123b69);
+  border-radius: 20px; padding: 48px 24px;
+}
+.support h2 { margin: 0 0 10px; font-size: 32px; }
+.support p { color: #d3deee; margin: 0 auto 24px; max-width: 580px; }
+footer { background: #071123; color: #c5d0e1; padding: 30px 0; font-size: 13px; }
+.footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+footer strong { color: white; }
+footer a { color: #bfe8ff; }
+@media (max-width: 760px) {
+  .nav { padding: 18px 0; align-items: flex-start; flex-direction: column; }
+  nav { gap: 15px; }
+  .hero { padding: 60px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 55px 0; }
+  .price-card { padding: 28px 20px; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">Soft<span>Cancun</span></div>
-    <nav>
-      <a href="#producto">Producto</a>
-      <a href="#compra">Comprar</a>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#" aria-label="SoftCancun inicio">Soft<span>Cancun</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#producto">El programa</a>
+      <a href="#compra">Precio y compra</a>
+      <a href="#proceso">Cómo comprar</a>
       <a href="#soporte">Soporte</a>
     </nav>
-  </header>
+  </div>
+</header>
 
+<main>
   <section class="hero">
-    <span class="tag">Soluciones de software</span>
-    <h1>Tu software, con atención cercana y segura</h1>
-    <p>Conoce SoftCancun, consulta la información del programa y sigue las instrucciones de compra e instalación.</p>
-    <a class="button" href="#compra">Consultar compra</a>
-    <a class="button secondary" href="#soporte">Contactar soporte</a>
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">SOFTWARE · ATENCIÓN PERSONALIZADA</span>
+        <h1>Una solución de software con soporte cercano.</h1>
+        <p>Conoce SoftCancun, consulta el precio y sigue un proceso de compra claro. Te acompañamos con información para la instalación y atención por WhatsApp.</p>
+        <div class="actions">
+          <a class="btn" href="#compra">Consultar precio</a>
+          <a class="btn btn-outline" href="#soporte">Hablar con soporte ↗</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Resumen de precio">
+        <div class="mini">Precio del programa</div>
+        <div class="amount">$1,392 MXN</div>
+        <div class="tax">IVA del 16% incluido</div>
+        <hr>
+        <ul>
+          <li>Información de compra clara</li>
+          <li>Revisión manual del comprobante</li>
+          <li>Descarga después de aprobar el pago</li>
+        </ul>
+      </aside>
+    </div>
   </section>
 
-  <main>
-    <section id="producto">
-      <div class="section-title">
-        <h2>Conoce SoftCancun</h2>
-        <p>Información clara del producto y acompañamiento durante el proceso de instalación.</p>
+  <section id="producto">
+    <div class="container">
+      <div class="section-head">
+        <h2>Compra con información clara</h2>
+        <p>Conoce las etapas del proceso y qué ocurre después de enviar tu pago.</p>
       </div>
       <div class="grid">
         <article class="card">
-          <div class="icon">💻</div>
-          <h3>Información del programa</h3>
-          <p>Consulta los detalles y requisitos del software antes de realizar tu compra.</p>
+          <div class="card-icon">💻</div>
+          <h3>SoftCancun</h3>
+          <p>Consulta la información del programa y confirma que corresponde a lo que necesitas antes de comprar.</p>
         </article>
         <article class="card">
-          <div class="icon">🧾</div>
-          <h3>Pago con revisión manual</h3>
-          <p>El comprobante será revisado manualmente. Enviar un comprobante no significa que el pago esté aprobado.</p>
+          <div class="card-icon">🧾</div>
+          <h3>Verificación manual</h3>
+          <p>El comprobante se revisará antes de confirmar el pago. Enviarlo no significa que haya sido aprobado.</p>
         </article>
         <article class="card">
-          <div class="icon">🔐</div>
+          <div class="card-icon">🔐</div>
           <h3>Entrega protegida</h3>
-          <p>La descarga del instalador se habilitará únicamente cuando el pago haya sido aprobado.</p>
+          <p>El acceso al instalador deberá habilitarse únicamente después de la aprobación del pago.</p>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="compra">
-      <div class="section-title">
-        <h2>Compra de SoftCancun</h2>
-        <p>Precio transparente, con IVA incluido.</p>
+  <section id="compra" class="soft-bg">
+    <div class="container">
+      <div class="section-head">
+        <h2>Precio de SoftCancun</h2>
+        <p>Un precio total presentado con claridad.</p>
       </div>
-      <div class="card" style="max-width:620px;margin:auto;text-align:center">
-        <p>Precio total del programa</p>
-        <div class="price">$1,392 MXN</div>
-        <p class="price-note">IVA del 16% incluido</p>
-        <p class="muted">Antes de transferir, solicita los datos bancarios oficiales. No realices pagos a cuentas no verificadas.</p>
-        <a class="button" href="https://wa.me/529902947421?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20comprar%20SoftCancun.">Solicitar información por WhatsApp</a>
+      <div class="price-wrap">
+        <div class="price-card">
+          <div class="price-label">Precio total del programa</div>
+          <div class="price">$1,392 MXN</div>
+          <div class="tax-label">IVA del 16% incluido</div>
+          <p style="color:#64748b">Para solicitar los datos oficiales de transferencia, ponte en contacto con nosotros.</p>
+          <a class="btn" href="https://wa.me/529902947421?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20comprar%20SoftCancun.">Solicitar información de compra</a>
+          <div class="disclaimer">No realices transferencias hasta confirmar los datos bancarios oficiales. El formulario de comprobantes y la aprobación automática de acceso todavía deben configurarse.</div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section style="margin-top:50px">
-      <div class="section-title">
-        <h2>¿Cómo funciona la compra?</h2>
+  <section id="proceso">
+    <div class="container">
+      <div class="section-head">
+        <h2>¿Cómo funciona el proceso?</h2>
+        <p>Estos son los pasos previstos para realizar la compra de forma ordenada.</p>
       </div>
       <div class="steps">
-        <ol>
-          <li>Solicita los datos bancarios oficiales antes de realizar la transferencia.</li>
-          <li>Realiza el pago por el importe indicado y conserva tu comprobante.</li>
-          <li>Envía el comprobante mediante el formulario seguro que habilitaremos.</li>
-          <li>Espera la revisión manual de tu pago.</li>
-          <li>Si se aprueba, recibirás acceso a la descarga protegida del instalador.</li>
-          <li>Solicita tu código de instalación por WhatsApp al 9902947421.</li>
-        </ol>
+        <article class="step">
+          <div><h3>Solicita los datos de transferencia</h3><p>Confirma por el canal oficial la información bancaria antes de pagar.</p></div>
+        </article>
+        <article class="step">
+          <div><h3>Realiza y conserva tu comprobante</h3><p>Guarda el comprobante de la transferencia para enviarlo cuando el formulario esté habilitado.</p></div>
+        </article>
+        <article class="step">
+          <div><h3>Envía el comprobante para revisión</h3><p>El equipo deberá verificar manualmente el pago antes de cambiar su estado.</p></div>
+        </article>
+        <article class="step">
+          <div><h3>Accede a la descarga aprobada</h3><p>El instalador deberá estar protegido y disponible solo para compras aprobadas.</p></div>
+        </article>
+        <article class="step">
+          <div><h3>Solicita tu código de instalación</h3><p>Contacta por WhatsApp al 9902947421 para recibir instrucciones sobre tu código.</p></div>
+        </article>
       </div>
-      <p class="notice">Importante: el formulario de comprobantes, la validación de pagos y la descarga protegida todavía deben configurarse antes de aceptar pagos reales.</p>
-    </section>
+      <div class="warning"><strong>Importante:</strong> el formulario de comprobantes, el panel privado de revisión y la descarga protegida aún deben implementarse. Esta página informativa no confirma pagos ni entrega archivos.</div>
+    </div>
+  </section>
 
-    <section id="soporte" style="margin-top:50px">
-      <div class="section-title">
+  <section id="soporte">
+    <div class="container">
+      <div class="support">
         <h2>¿Necesitas ayuda?</h2>
-        <p>Contacta con nuestro equipo para recibir información sobre compra e instalación.</p>
-        <a class="button" href="https://wa.me/529902947421?text=Hola%2C%20necesito%20ayuda%20con%20SoftCancun.">Contactar por WhatsApp</a>
+        <p>Escríbenos para consultar información de compra y recibir orientación sobre el proceso de instalación.</p>
+        <a class="btn" href="https://wa.me/529902947421?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20SoftCancun.">Contactar por WhatsApp ↗</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <p><strong>SoftCancun</strong> · Información, compra y soporte</p>
-    <p>Los pagos y las descargas estarán sujetos a validación manual.</p>
-  </footer>
+<footer>
+  <div class="container footer-row">
+    <div><strong>SoftCancun</strong><br>Software, información y soporte.</div>
+    <div>Contacto: <a href="https://wa.me/529902947421">WhatsApp 9902947421</a></div>
+    <div>© <span id="year">2026</span> SoftCancun</div>
+  </div>
+</footer>
 </body>
 </html>
