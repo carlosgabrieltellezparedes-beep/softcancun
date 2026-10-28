@@ -360,9 +360,11 @@ footer a { color: #bfe8ff; }
         "https://ditgnslgumgzmgleaffm.supabase.co/functions/v1/crear-pago",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+         headers: {
+  "Content-Type": "application/json",
+  "apikey": "sb_secret_3qaEL
+nwRl6WTf9_WYLbOYw_qj8MIpD0"
+},
           body: JSON.stringify({
             nombre: document.getElementById("pago-nombre").value.trim(),
             correo: document.getElementById("pago-correo").value.trim()
