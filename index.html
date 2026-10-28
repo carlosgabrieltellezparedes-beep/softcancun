@@ -344,6 +344,49 @@ footer a { color: #bfe8ff; }
 
      <p id="pago-mensaje" role="status" aria-live="polite"></p>
   </form>
-</section>
+</section><script>
+  const formularioPago = document.getElementById("formulario-pago");
+  const mensajePago = document.getElementById("pago-mensaje");
+
+  formularioPago.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
+
+    const boton = formularioPago.querySelector('button[type="submit"]');
+    boton.disabled = true;
+    mensajePago.textContent = "Registrando tu solicitud...";
+
+    try {
+      const respuesta = await fetch(
+        "https://ditgnslgumgzmgleaffm.supabase.co/functions/v1/crear-pago",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            nombre: document.getElementById("pago-nombre").value.trim(),
+            correo: document.getElementById("pago-correo").value.trim()
+          })
+        }
+      );
+
+      const resultado = await respuesta.json();
+
+      if (!respuesta.ok) {
+        throw new Error(resultado.error || "No se pudo registrar la solicitud.");
+      }
+
+      mensajePago.textContent =
+        "Solicitud registrada. Importe: $1,392 MXN. Estado: pendiente. Folio: " +
+        resultado.id;
+      formularioPago.reset();
+    } catch (error) {
+      mensajePago.textContent =
+        error.message || "No se pudo conectar. Inténtalo de nuevo.";
+    } finally {
+      boton.disabled = false;
+    }
+  });
+</script>
 </body>
 </html>
