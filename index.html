@@ -1,110 +1,172 @@
 
-<section id="solicitar-pago" style="max-width:650px;margin:48px auto;padding:28px;border:1px solid #e5e7eb;border-radius:16px;font-family:Arial,sans-serif;color:#1f2937;">
-  <h2 style="margin-top:0;">Adquiere SoftCancun</h2>
+<section id="solicitar-pago" style="max-width:650px;margin:48px auto;padding:28px;border:1px solid #e5e7eb;border-radius:18px;font-family:Arial,sans-serif;color:#1f2937;box-shadow:0 8px 28px rgba(0,0,0,.06);">
 
-  <p>Completa tus datos para iniciar tu solicitud de compra.</p>
-
-  <div style="background:#f0fdfa;padding:18px;border-radius:12px;margin:20px 0;">
-    <p style="margin:0;">Precio: $1,200.00 MXN</p>
-    <p style="margin:4px 0;">IVA (16%): $192.00 MXN</p>
-    <h3 style="margin:8px 0 0;">Total: $1,392.00 MXN</h3>
+  <div style="text-align:center;margin-bottom:24px;">
+    <h2 style="margin:0 0 10px;color:#0f766e;">Adquiere SoftCancun</h2>
+    <p style="margin:0;color:#64748b;">Completa tus datos y continúa con tu compra de forma sencilla.</p>
   </div>
 
-  <form id="formulario-pago">
-    <div style="margin-bottom:16px;">
-      <label for="pago-nombre" style="display:block;margin-bottom:6px;">
-        Nombre completo
-      </label>
-      <input
-        id="pago-nombre"
-        name="nombre"
-        type="text"
-        required
-        minlength="2"
-        maxlength="120"
-        autocomplete="name"
-        style="box-sizing:border-box;width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;"
-      >
+  <div style="background:#f0fdfa;padding:20px;border-radius:12px;margin:20px 0;border:1px solid #ccfbf1;">
+    <p style="margin:0 0 8px;">Precio: <strong>$1,200.00 MXN</strong></p>
+    <p style="margin:0 0 12px;">IVA (16%): <strong>$192.00 MXN</strong></p>
+    <div style="border-top:1px solid #99f6e4;padding-top:12px;">
+      <span style="color:#475569;">Total a pagar</span>
+      <div style="font-size:30px;font-weight:bold;color:#0f766e;margin-top:4px;">$1,392.00 MXN</div>
+      <small>IVA incluido</small>
     </div>
+  </div>
 
-    <div style="margin-bottom:16px;">
-      <label for="pago-correo" style="display:block;margin-bottom:6px;">
-        Correo electrónico
-      </label>
-      <input
-        id="pago-correo"
-        name="correo"
-        type="email"
-        required
-        maxlength="254"
-        autocomplete="email"
-        style="box-sizing:border-box;width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;"
-      >
-    </div>
+  <div style="margin:24px 0;padding:22px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;text-align:center;">
+    <h3 style="margin:0 0 10px;">Paga con Mercado Pago</h3>
+    <p style="font-size:14px;color:#475569;">Puedes abrir el enlace de pago o escanear el código QR desde tu celular.</p>
 
-    <button
-      id="boton-pago"
-      type="submit"
-      style="width:100%;padding:14px;background:#0f766e;color:white;border:0;border-radius:8px;font-weight:bold;cursor:pointer;"
+    <a
+      href="https://mpago.li/21Gf5ko"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="display:block;box-sizing:border-box;width:100%;padding:15px;background:#009ee3;color:white;border-radius:9px;text-decoration:none;font-weight:bold;margin:18px 0;"
     >
-      Continuar con la solicitud
-    </button>
+      Pagar $1,392 MXN con Mercado Pago
+    </a>
 
-    <p
-      id="pago-mensaje"
-      role="status"
-      aria-live="polite"
-      style="margin-top:16px;overflow-wrap:anywhere;"
+    <p style="font-size:14px;margin:20px 0 10px;">O escanea este código QR</p>
+
+    <img
+      id="softcancun-qr"
+      alt="Código QR para abrir el enlace de pago de SoftCancun en Mercado Pago"
+      width="220"
+      height="220"
+      style="display:block;width:220px;height:220px;max-width:100%;margin:0 auto;background:white;border:8px solid white;border-radius:8px;"
     >
-      Introduce tus datos para comenzar.
+
+    <p id="qr-mensaje" role="status" style="font-size:12px;color:#64748b;margin:10px 0 0;">
+      Cargando código QR...
     </p>
-  </form>
+
+    <p style="font-size:12px;color:#64748b;margin:18px 0 0;">
+      Verifica el importe en Mercado Pago antes de confirmar el pago.
+    </p>
+  </div>
+
+  <div style="border-top:1px solid #e5e7eb;padding-top:22px;">
+    <h3 style="margin-top:0;">Tus datos de compra</h3>
+    <p style="font-size:14px;color:#64748b;">Registra tus datos para iniciar la solicitud de compra.</p>
+
+    <form id="formulario-pago">
+      <div style="margin-bottom:16px;">
+        <label for="pago-nombre" style="display:block;margin-bottom:7px;font-weight:bold;">Nombre completo</label>
+        <input
+          id="pago-nombre"
+          name="nombre"
+          type="text"
+          required
+          minlength="2"
+          maxlength="120"
+          autocomplete="name"
+          placeholder="Escribe tu nombre"
+          style="box-sizing:border-box;width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;"
+        >
+      </div>
+
+      <div style="margin-bottom:18px;">
+        <label for="pago-correo" style="display:block;margin-bottom:7px;font-weight:bold;">Correo electrónico</label>
+        <input
+          id="pago-correo"
+          name="correo"
+          type="email"
+          required
+          maxlength="254"
+          autocomplete="email"
+          placeholder="tu@correo.com"
+          style="box-sizing:border-box;width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;"
+        >
+      </div>
+
+      <button
+        id="boton-pago"
+        type="submit"
+        style="box-sizing:border-box;width:100%;padding:14px;background:#0f766e;color:white;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;"
+      >
+        Registrar solicitud de compra
+      </button>
+
+      <p
+        id="pago-mensaje"
+        role="status"
+        aria-live="polite"
+        style="margin-top:16px;overflow-wrap:anywhere;font-size:14px;"
+      >Completa tus datos para comenzar.</p>
+    </form>
+  </div>
+
+  <div style="margin-top:22px;padding:14px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;font-size:13px;color:#92400e;">
+    <strong>Importante:</strong> registrar la solicitud no significa que el pago esté confirmado. La compra debe verificarse manualmente antes de autorizar la descarga.
+  </div>
 </section>
 
 <script>
 (() => {
   "use strict";
 
-  const formularioPago = document.getElementById("formulario-pago");
-  const mensajePago = document.getElementById("pago-mensaje");
-  const botonPago = document.getElementById("boton-pago");
+  const URL_PAGO = "https://mpago.li/21Gf5ko";
 
   const URL_FUNCION =
     "https://ditgnslgumgzmgleaffm.supabase.co/functions/v1/crear-pago";
 
-  // Usa aquí tu clave PUBLICABLE de Supabase.
-  // Nunca pongas una clave sb_secret_ o service_role en esta página.
-  const CLAVE_PUBLICA = "sb_publishable__5DTPPAJpyYjwEA30m3h1A_GAQNM3qD";
+  // Esta es la clave PUBLICABLE que compartiste anteriormente.
+  // Comprueba que sea exactamente la clave pública vigente de tu proyecto.
+  // Nunca uses una clave sb_secret_ ni service_role en el navegador.
+  const CLAVE_PUBLICA =
+    "sb_publishable__5DTPPAJpyYjwEA30m3h1A_GAQNM3qD";
 
-  if (!formularioPago || !mensajePago || !botonPago) {
-    console.error("No se encontraron los elementos del formulario de pago.");
+  const formulario = document.getElementById("formulario-pago");
+  const mensaje = document.getElementById("pago-mensaje");
+  const boton = document.getElementById("boton-pago");
+  const imagenQR = document.getElementById("softcancun-qr");
+  const mensajeQR = document.getElementById("qr-mensaje");
+
+  // Generar el QR del enlace real de Mercado Pago.
+  // La imagen se solicita a un servicio externo.
+  if (imagenQR && mensajeQR) {
+    imagenQR.addEventListener("load", () => {
+      mensajeQR.textContent = "Escanea el QR para abrir Mercado Pago.";
+    });
+
+    imagenQR.addEventListener("error", () => {
+      mensajeQR.textContent =
+        "No se pudo cargar el QR. Utiliza el botón de Mercado Pago.";
+    });
+
+    imagenQR.src =
+      "https://quickchart.io/qr?size=220&text=" +
+      encodeURIComponent(URL_PAGO);
+  }
+
+  if (!formulario || !mensaje || !boton) {
+    console.error("No se encontraron los elementos del formulario.");
     return;
   }
 
-  formularioPago.addEventListener("submit", async (evento) => {
+  formulario.addEventListener("submit", async (evento) => {
     evento.preventDefault();
 
-    if (CLAVE_PUBLICA === "sb_publishable__5DTPPAJpyYjwEA30m3h1A_GAQNM3qD") {
-      mensajePago.textContent =
-        "Falta configurar la clave pública de Supabase en la página.";
-      return;
-    }
-
-    const nombre =
-      document.getElementById("pago-nombre").value.trim();
-
-    const correo =
-      document.getElementById("pago-correo").value.trim();
+    const nombre = document.getElementById("pago-nombre").value.trim();
+    const correo = document.getElementById("pago-correo").value.trim();
 
     if (nombre.length < 2 || !correo) {
-      mensajePago.textContent =
-        "Escribe tu nombre completo y un correo válido.";
+      mensaje.textContent = "Introduce tu nombre y un correo válido.";
       return;
     }
 
-    botonPago.disabled = true;
-    botonPago.textContent = "Registrando solicitud...";
-    mensajePago.textContent = "Conectando con el servicio de pagos...";
+    if (!CLAVE_PUBLICA.startsWith("sb_publishable_")) {
+      mensaje.textContent =
+        "Revisa la clave pública de Supabase antes de continuar.";
+      return;
+    }
+
+    boton.disabled = true;
+    boton.textContent = "Registrando solicitud...";
+    mensaje.textContent = "Conectando con el servicio de solicitudes...";
 
     try {
       const respuesta = await fetch(URL_FUNCION, {
@@ -113,40 +175,44 @@
           "Content-Type": "application/json",
           "apikey": CLAVE_PUBLICA
         },
-        body: JSON.stringify({ nombre, correo })
+        body: JSON.stringify({
+          nombre,
+          correo
+        })
       });
 
       const resultado = await respuesta.json().catch(() => ({}));
 
       if (!respuesta.ok) {
         throw new Error(
-          resultado.error ||
-          "No se pudo registrar la solicitud. Código: " + respuesta.status
+          "No se pudo registrar la solicitud. Código HTTP: " +
+          respuesta.status +
+          ". Revisa la configuración de la función de Supabase."
         );
       }
 
       if (!resultado.id) {
         throw new Error(
-          "El servidor respondió, pero no devolvió un folio de solicitud."
+          "El servidor no devolvió un folio de solicitud."
         );
       }
 
-      mensajePago.textContent =
-        "Solicitud registrada correctamente. " +
-        "Total: $1,392 MXN. Estado: pendiente de revisión. " +
-        "Folio: " + resultado.id +
-        ". Guarda este folio para consultar tu solicitud.";
+      mensaje.textContent =
+        "Solicitud registrada. Folio: " + resultado.id +
+        ". Total: $1,392 MXN. Estado: pendiente de revisión. " +
+        "Si aún no has pagado, puedes hacerlo con el botón de Mercado Pago.";
 
-      formularioPago.reset();
+      formulario.reset();
+
     } catch (error) {
       console.error("Error al registrar la solicitud:", error);
-      mensajePago.textContent =
-        error.message ||
-        "No se pudo conectar con el servidor. Inténtalo nuevamente.";
+      mensaje.textContent = error.message ||
+        "No se pudo conectar con el servicio. Inténtalo nuevamente.";
     } finally {
-      botonPago.disabled = false;
-      botonPago.textContent = "Continuar con la solicitud";
+      boton.disabled = false;
+      boton.textContent = "Registrar solicitud de compra";
     }
   });
 })();
 </script>
+
