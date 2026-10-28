@@ -316,4 +316,34 @@ footer a { color: #bfe8ff; }
   </div>
 </footer>
 </body>
+<section id="solicitar-pago" style="max-width:650px;margin:48px auto;padding:28px;border:1px solid #e5e7eb;border-radius:16px;font-family:Arial,sans-serif;color:#1f2937;">
+  <h2 style="margin-top:0;">Adquiere SoftCancun</h2>
+  <p>Completa tus datos para iniciar tu solicitud de compra.</p>
+
+  <div style="background:#f0fdfa;padding:18px;border-radius:12px;margin:20px 0;">
+    <p style="margin:0;">Precio: $1,200.00 MXN</p>
+    <p style="margin:4px 0;">IVA (16%): $192.00 MXN</p>
+    <h3 style="margin:8px 0 0;">Total: $1,392.00 MXN</h3>
+  </div>
+
+  <form id="formulario-pago">
+    <label for="pago-nombre">Nombre completo</label>
+    <input id="pago-nombre" name="nombre" type="text" required minlength="2" maxlength="120"
+      autocomplete="name"
+      style="box-sizing:border-box;width:100%;padding:12px;margin:6px 0 16px;border:1px solid #d1d5db;border-radius:8px;">
+
+    <label for="pago-correo">Correo electrónico</label>
+    <input id="pago-correo" name="correo" type="email" required maxlength="254"
+      autocomplete="email"
+      style="box-sizing:border-box;width:100%;padding:12px;margin:6px 0 18px;border:1px solid #d1d5db;border-radius:8px;">
+
+    <button type="submit"
+      style="width:100%;padding:14px;border:0;border-radius:8px;background:#0f766e;color:white;font-weight:bold;cursor:pointer;">
+      Continuar con la solicitud
+    </button>
+
+    <p id="pago-mensaje" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
 </html>
